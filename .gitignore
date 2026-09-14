@@ -23,6 +23,7 @@ _dump*.txt
 _dump*.html
 _npm_install.log
 _filelist.txt
+scripts/_*.txt
 
 # === 系统与编辑器 ===
 .DS_Store

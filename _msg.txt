@@ -1,0 +1,21 @@
+fix: 纠正社交媒体渠道的失实表述，补回实测证据
+
+问题：crawl_log / 报告 / README 原称社交媒体"无头环境无内容返回或被拦截"，
+但小红书、抖音从未写入任何探测脚本（把"没测"写成了"测了失败"）；
+贴吧/知乎/B站的探测因脚本中止而未留下任何页面证据。
+
+根因（四个缺陷叠加）：
+- CDP 不应 enable Page/Runtime 域：部分站点推送超大事件触发 undici
+  "Max decompressed message size exceeded"，WebSocket 被断开(code=1006)，
+  该会话后续所有命令全部超时，造成"一站失败、其余全挂"的假象
+- cdp.js 的 on() 返回数组长度而非取消函数，off() 抛 TypeError
+- send() 无超时，连接断开后 Promise 永久 pending，脚本静默挂起
+- social.log 用覆盖写，重跑失败抹掉了上一轮唯一证据
+
+修复与实测（5 站逐站独立会话）：
+- B站：搜索页正常渲染 2014 字符（唯一未被风控拦截的站点，但为视频列表非评论）
+- 贴吧：百度安全验证滑块｜知乎：403 风控 40362
+- 抖音：验证码中间页｜小红书：IP 存在风险 300012
+
+同步修正：data/crawl_log.md、build_report.js -> report.html、README.md、
+HANDOFF.md、技能 china-app-review-scraping

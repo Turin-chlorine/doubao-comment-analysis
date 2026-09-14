@@ -47,7 +47,7 @@ node scripts/build_report.js           # 生成 report/report.html
 
 ## 已知局限（报告中已完整说明）
 
-1. **渠道单一**：结论来自 iOS App Store 与豌豆荚，小红书/抖音/知乎/黑猫投诉均因反爬未采集到数据。
+1. **渠道单一**：结论来自 iOS App Store 与豌豆荚。社交媒体渠道经实测**均被平台风控拦截**——小红书返回 IP 限制（300012）、抖音跳转验证码中间页、贴吧要求滑块验证、知乎返回 403 风控（40362）；B站搜索页可访问但只返回视频列表、不含评论正文。黑猫投诉接口需客户端签名。
 2. **时间偏置**：苹果接口每页只返回 10 条，样本偏向"最新/最有帮助"，不能用于推断长期趋势。
 3. **总量偏小**：豆包系有效样本 79 条，单产品线多低于 30 条，产品线级结论仅作方向提示。
 4. **打标由 AI 单方完成**：自检只能证明标签稳定，不能证明标签正确。如需团队使用，应补充人工打标并计算一致性系数。
@@ -56,4 +56,7 @@ node scripts/build_report.js           # 生成 report/report.html
 
 - 控制台 stdout 不便于采集，所有脚本**自行写文件**输出日志（见 `scripts/*.log`）
 - 无头浏览器渠道探测封装在 `scripts/cdp.js`（Chrome DevTools Protocol）
-- 各渠道探测的原始请求记录保留在 `data/xhr_*/`
+- **不要 enable CDP 的 `Page` / `Runtime` 域**：`Page.navigate` 与 `Runtime.evaluate` 并不依赖它们，而部分站点（如贴吧）会推送超大事件，触发 undici `Max decompressed message size exceeded` 并强制断开 WebSocket（code=1006），使该会话后续所有命令全部超时。社交渠道的探测脚本曾因此静默失败且无任何日志
+- 探测多个站点时，**每个站点使用独立 Chrome 会话**，避免单站断连污染其余站点
+- 采集类脚本的日志一律用 **append** 模式，防止重跑失败覆盖掉上一轮证据
+- 各渠道探测的原始请求记录保留在 `data/xhr_*/`；社交渠道实测正文保留在 `data/social_test/`

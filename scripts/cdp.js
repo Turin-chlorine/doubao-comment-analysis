@@ -40,9 +40,11 @@ async function session(handler, opts) {
     await sleep(500);
   }
   if (!pageWs) { chrome.kill(); throw new Error('no cdp page'); }
+  log('cdp page found', String(pageWs).slice(0, 72));
 
   const ws = new WebSocket(pageWs);
   await new Promise((res, rej) => { ws.onopen = res; ws.onerror = () => rej(new Error('ws error')); });
+  log('ws open');
 
   let seq = 0;
   const pending = new Map();
@@ -52,8 +54,16 @@ async function session(handler, opts) {
     params = params || {};
     return new Promise((res, rej) => {
       const id = ++seq;
-      pending.set(id, { res, rej });
-      ws.send(JSON.stringify({ id, method, params }));
+      const timer = setTimeout(() => {
+        pending.delete(id);
+        rej(new Error('TIMEOUT waiting for ' + method + ' (ws state=' + ws.readyState + ')'));
+      }, 15000);
+      pending.set(id, {
+        res: (v) => { clearTimeout(timer); res(v); },
+        rej: (e) => { clearTimeout(timer); rej(e); },
+      });
+      try { ws.send(JSON.stringify({ id, method, params })); }
+      catch (e) { clearTimeout(timer); pending.delete(id); rej(e); }
     });
   }
 
@@ -70,13 +80,32 @@ async function session(handler, opts) {
     listeners.forEach((fn) => { try { fn(msg); } catch (e) {} });
   };
 
-  await send('Page.enable');
-  await send('Runtime.enable');
-  await send('Network.enable', { maxResourceBufferSize: 200 * 1024 * 1024 });
+  ws.onerror = (e) => log('ws error event', (e && e.message) || '');
+  ws.onclose = (e) => log('ws closed', 'code=' + (e && e.code));
+
+  // 不再 enable Page / Runtime 域：这两个域只为「接收事件」而存在，
+  // 而 Page.navigate 与 Runtime.evaluate 本身并不依赖 enable。
+  // 实测副作用：部分站点会推送超大事件（如巨量 console 输出），触发 undici
+  // "Max decompressed message size exceeded" 并强制断开 WebSocket（code=1006），
+  // 该会话后续所有命令随即全部超时 —— 这是社交渠道探测静默失败的真正原因。
+  log('domains: Page/Runtime enable skipped by design');
+  if (opts.network === false) {
+    log('  Network.enable skipped (opts.network=false)');
+  } else {
+    await send('Network.enable', { maxResourceBufferSize: 200 * 1024 * 1024 });
+    log('  Network.enable ok');
+  }
 
   const api = {
     send,
-    on: (fn) => listeners.push(fn),
+    // 注册事件监听，返回取消函数（此前返回的是数组长度，调用 off() 会抛异常）
+    on: (fn) => {
+      listeners.push(fn);
+      return () => {
+        const i = listeners.indexOf(fn);
+        if (i >= 0) listeners.splice(i, 1);
+      };
+    },
     async evaluate(expr) {
       const r = await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true });
       if (r && r.exceptionDetails) throw new Error('eval-exception: ' + JSON.stringify(r.exceptionDetails.text || ''));
