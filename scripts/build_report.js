@@ -546,6 +546,8 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
     <tr><td><code>data/bili/bili_all_raw.json</code></td><td>B站 原始采集结果（74 条一级评论 + 208 个视频元数据）</td></tr>
     <tr><td><code>data/bili/relevance_review.md</code></td><td>B站 相关性人工复核：66 条逐条纳入/排除理由</td></tr>
     <tr><td><code>data/bili/tags_bili.txt</code>、<code>stats_bili.md</code></td><td>B站 打标结果与渠道统计</td></tr>
+    <tr><td><code>annotation/annotate.html</code></td><td>人工打标一致性验证工具（40 条双盲样本，见附录 C）</td></tr>
+    <tr><td><code>docs/需求原文.jpg</code></td><td>本项目的原始需求说明（归档留存）</td></tr>
   </table>
 
   <h3>附录 C · 打标自检</h3>
@@ -556,7 +558,36 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
     <tr><td>20 条独立复核 · 主标签一致率</td><td class="num">100%</td></tr>
     <tr><td>20 条独立复核 · 总一致率</td><td class="num">98.8%</td></tr>
   </table>
-  <p class="cap">复核方法与局限见 <code>data/selfcheck.md</code>。<b>同一模型两轮打标的一致性偏高，只能证明标签稳定，不能证明标签正确。</b>如需交付给产品团队使用，建议由 1–2 位产品同学对同样 20 条独立打标并计算一致性系数。</p>
+  <p class="cap">复核方法与局限见 <code>data/selfcheck.md</code>。<b>同一模型两轮打标的一致性偏高，只能证明标签稳定，不能证明标签正确。</b>该验证的工具已就位（40 条双盲样本 + Cohen\'s Kappa 计算脚本，见 <code>annotation/</code>），<b>但人工标注尚未完成，Kappa 数值未出</b>。在此之前，本报告的全部结论都应保留"AI 单方打标"这个前提。</p>
+
+  <h3>附录 D · 产出过程与成本</h3>
+  <p class="cap">下表所有时点均取自文件落盘时间与 Git 提交记录，非估算。完整探查记录见 <code>data/crawl_log.md</code>。</p>
+  <table>
+    <tr><th>时点（2026 年）</th><th>事件</th><th>依据</th></tr>
+    <tr><td>09-14 23:59</td><td>分析方案与提示词定稿</td><td><code>prompts.md</code></td></tr>
+    <tr><td>09-15 00:20</td><td>评论接口打通，首批评论落盘</td><td><code>data/appstore_dom.txt</code></td></tr>
+    <tr><td>09-15 00:30</td><td>主采集完成（8 个 App × 8 个排序维度）</td><td><code>data/appstore_multi.json</code></td></tr>
+    <tr><td>09-15 00:42</td><td>统一数据集建成（${r.total} 条）</td><td><code>data/comments.csv</code></td></tr>
+    <tr><td>09-15 00:44</td><td>分类体系定稿</td><td><code>data/taxonomy.md</code></td></tr>
+    <tr><td>09-15 00:47</td><td>全量打标与统计完成</td><td><code>data/tagged.json</code></td></tr>
+    <tr style="background:#fff8f8"><td><b>09-15 00:59</b></td><td><b>报告成型并首次提交</b></td><td>Git <code>80c4a33</code></td></tr>
+  </table>
+  <p class="cap">从提示词定稿到报告成型，端到端耗时 <b>约 1 小时</b>（61 分钟）。</p>
+  <table>
+    <tr><th></th><th>传统访谈方案</th><th>本项目</th></tr>
+    <tr><td>样本量</td><td>5–10 位用户</td><td><b>${r.total} 条真实评论</b>（清洗后有效 ${r.valid} 条）</td></tr>
+    <tr><td>主要时间成本</td><td>招募、约时间、访谈、转录、编码</td><td>渠道接口探测（一次性）</td></tr>
+    <tr><td>从零到出报告</td><td>需数天</td><td><b>约 1 小时</b></td></tr>
+  </table>
+
+  <h3>这套方法的代价是什么（必须一并说明）</h3>
+  <p style="font-size:13.5px">
+    <b>① 评论不等于访谈。</b>访谈可以追问"为什么"，评论只能拿到用户愿意主动写下来的部分——本报告能回答"不满集中在哪"，不能回答"为什么会这样"。真正的归因仍需要访谈或可用性测试。<br>
+    <b>② 样本受渠道可得性限制。</b>本次实测的多数社交渠道被平台风控拦截（详见 <code>crawl_log.md</code>），主证据实际来自 iOS 应用商店，安卓与社交媒体覆盖不足。<br>
+    <b>③ 首次搭建的成本无法省略。</b>"1 小时"是一次性打通之后的速度；在此之前完成了 10 个渠道的可行性探测。这部分成本只会在第一次出现，但确实存在。<br>
+    <b>④ 采集环节需要脚本。</b>因公开评论接口已失效，本项目改走遗留接口并自建采集脚本（<code>scripts/</code>），并非零代码方案；编码、打标、统计、成文环节无需编码。<br>
+    <b>⑤ 增量成本极低。</b>流程固化为脚本后，换目标产品或重跑一轮只需数分钟，可用于持续跟踪。
+  </p>
 </section>
 
 <footer>
