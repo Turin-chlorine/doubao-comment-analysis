@@ -275,16 +275,16 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
   <p class="cap">复核方法与局限见 <code>data/selfcheck.md</code>。<b>同一模型两轮打标的一致性偏高，只能证明标签稳定，不能证明标签正确。</b>该验证的工具已就位（40 条双盲样本 + Cohen's Kappa 计算脚本，见 <code>annotation/</code>），<b>但人工标注尚未完成，Kappa 数值未出</b>。在此之前，本报告的全部结论都应保留"AI 单方打标"这个前提。</p>
 
   <h3>附录 D · 产出过程与成本</h3>
-  <p class="cap">下表所有时点均取自文件落盘时间与 Git 提交记录，非估算。完整探查记录见 <code>data/crawl_log.md</code>。</p>
+  <p class="cap">下表所有时点均取自文件落盘时间与 Git 提交记录，非估算。完整探查记录见 <code>data/crawl_log.md</code>。「依据」列只列<b>已随仓库发布</b>的文件；<code>data/appstore_dom.txt</code>、<code>scripts/*.log</code> 等原始中间产物体积较大，已在 <code>.gitignore</code> 中排除，不随仓库发布（可重跑脚本复现）。</p>
   <table>
     <tr><th>时点（2026 年）</th><th>事件</th><th>依据</th></tr>
     <tr><td>09-14 23:59</td><td>分析方案与提示词定稿</td><td><code>prompts.md</code></td></tr>
-    <tr><td>09-15 00:20</td><td>评论接口打通，首批评论落盘</td><td><code>data/appstore_dom.txt</code></td></tr>
+    <tr><td>09-15 00:23</td><td>评论接口打通，首批评论落盘（单 App 试采 20 条）</td><td><code>data/appstore_reviews.json</code></td></tr>
     <tr><td>09-15 00:30</td><td>主采集完成（8 个 App × 8 个排序维度）</td><td><code>data/appstore_multi.json</code></td></tr>
     <tr><td>09-15 00:42</td><td>统一数据集建成（266 条）</td><td><code>data/comments.csv</code></td></tr>
     <tr><td>09-15 00:44</td><td>分类体系定稿</td><td><code>data/taxonomy.md</code></td></tr>
     <tr><td>09-15 00:47</td><td>全量打标与统计完成</td><td><code>data/tagged.json</code></td></tr>
-    <tr style="background:#fff8f8"><td><b>09-15 00:59</b></td><td><b>报告成型并首次提交</b></td><td>Git <code>80c4a33</code></td></tr>
+    <tr style="background:#fff8f8"><td><b>09-15 00:59</b></td><td><b>报告成型并首次提交</b></td><td><code>git log --reverse</code> 首条提交的时间戳</td></tr>
   </table>
   <p class="cap">从提示词定稿到报告成型，端到端耗时 <b>约 1 小时</b>（61 分钟）。</p>
   <table>

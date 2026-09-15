@@ -19,7 +19,7 @@
 | 抖音 | ❌ 失败 | 0 条 | 跳转"验证码中间页"，加载 `verify.snssdk.com` 验证组件 |
 | 小红书 | ❌ 失败 | 0 条 | 返回"安全限制 IP存在风险"（错误码 300012） |
 
-> **本节数据的取证说明**：以上五条均为 2026-09-15 修复探测脚本后的**实测结果**，原始正文落在 `data/social_test/`，逐站点执行日志见 `scripts/social.log`。
+> **本节数据的取证说明**：以上五条均为 2026-09-15 修复探测脚本后的**实测结果**，原始正文落在 `data/social_test/`，逐站点执行日志见 `scripts/social.log`（运行日志属本地中间产物，已在 `.gitignore` 中排除，不随仓库发布）。
 > 此前版本的本表格曾写作"无头环境无内容返回""被拦截，正文为空"等，属于**未经实测的推断**，已作废。首次探测之所以没有留下记录，是因为脚本在建立 CDP 会话阶段即中止（`Page/Runtime` 域事件触发 WebSocket 消息上限，连接被强制断开），且日志采用覆盖写入，重跑失败把上一轮证据抹掉了。两个缺陷均已修复（`scripts/cdp.js`、`scripts/try_social.js`）。
 
 **最终入库：266 条原始评论**（去重后），其中豆包系 112 条、竞品 154 条。
@@ -125,7 +125,7 @@ B站是本次唯一未被风控直接拒绝的社交渠道。搜索与评论两�
 | `scripts/build_bili_dataset.js` | B站 清洗、相关性过滤、生成可读文本 |
 | `scripts/build_bili_analysis.js` | B站 打标统计与跨渠道交叉验证 |
 
-采集明细日志：`scripts/crawler.log`、`scripts/wandoujia.log`、`scripts/heimao.log`、`scripts/xhr_*.log`、`scripts/social.log`、`scripts/bili_all.log`、`scripts/bili_wbi.log`、`scripts/bili_api_probe.log`、`scripts/bili_fetch.log`
+采集明细日志（**本地中间产物，已在 `.gitignore` 中排除，不随仓库发布**；可复现的关键证据为随仓库发布的 `data/social_test/` 原始正文与 `data/bili/` 原始响应）：`scripts/crawler.log`、`scripts/wandoujia.log`、`scripts/heimao.log`、`scripts/xhr_*.log`、`scripts/social.log`、`scripts/bili_all.log`、`scripts/bili_wbi.log`、`scripts/bili_api_probe.log`、`scripts/bili_fetch.log`
 
 ## 六、字段说明（`data/comments.csv`）
 
