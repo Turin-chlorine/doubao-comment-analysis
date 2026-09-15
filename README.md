@@ -8,7 +8,7 @@
 
 | 文件 | 说明 |
 |---|---|
-| `report/report.html` | **最终报告**（自包含单文件，双击打开，图表为内联 SVG 无外部依赖） |
+| `report/report.html` | **最终报告**（自包含单文件，下载后双击打开；图表为内联 SVG 无外部依赖）。<br>⚠️ GitHub 网页不渲染 `.html`，在线点开只会看到源码——请 `clone` 后本地打开 |
 | `data/crawl_log.md` | 采集日志：每个渠道的实际条数与失败原因 |
 | `data/taxonomy.md` | 痛点分类体系：8 个主题 + 判定边界 + 正反例 |
 | `data/tagged.json` | 全量打标结果（266 条） |
