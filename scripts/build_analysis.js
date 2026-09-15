@@ -116,16 +116,16 @@ Object.keys(exclReasons).sort((a, b) => exclReasons[b] - exclReasons[a]).forEach
 cleanStats.push('');
 cleanStats.push('### 各产品有效条数');
 cleanStats.push('');
-cleanStats.push('| 产品 | 原始 | 有效 | 有效率 | 备注 |');
+cleanStats.push('> 结论强度分三档：**定量级** n≥30（可引用具体百分比）／**方向级** 20≤n<30（只可比较相对高低）／**线索级** n<20（只作线索，不单独下结论）。');
+cleanStats.push('');
+cleanStats.push('| 产品 | 原始 | 有效 | 有效率 | 结论强度 |');
 cleanStats.push('|---|---|---|---|---|');
 Object.keys(byChannel).forEach((k) => {
   const v = byChannel[k];
   const rate = (100 * v.valid / v.total).toFixed(1) + '%';
-  const note = (v.valid < 30 && r0(k)) ? '样本不足 30 条，该产品结论仅供参考' : '';
-  cleanStats.push('| ' + k + ' | ' + v.total + ' | ' + v.valid + ' | ' + rate + ' | ' + note + ' |');
+  const tier = v.valid >= 30 ? '定量级' : (v.valid >= 20 ? '方向级' : '线索级');
+  cleanStats.push('| ' + k + ' | ' + v.total + ' | ' + v.valid + ' | ' + rate + ' | ' + tier + ' |');
 });
-
-function r0(k) { return k !== '豆包 - 随时帮忙的 AI 助手'; }
 
 fs.writeFileSync(path.join(DATA, 'clean_stats.md'), cleanStats.join('\n'), 'utf8');
 

@@ -31,6 +31,7 @@ table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:500;font-size:12.5px;background:#fafbfc}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.grp td{background:#f2f4f6;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.3px;padding:8px 12px}
 .chart{margin:16px 0 6px}
 .cap{font-size:12px;color:var(--muted);margin:8px 0 0}
 .card{border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:14px}
@@ -116,16 +117,19 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
   <p style="font-size:13.5px">按预设规则剔除无信息量内容，共剔除 <b>81</b> 条（占 30.5%）：过短，无可辨识语义 29 条；泛化好评，无信息量 25 条；泛化差评，无信息量 22 条；疑似乱码或重复内容 3 条；非中文内容 2 条。</p>
 
   <h3>样本结构与局限（必须一并阅读）</h3>
+  <p style="font-size:13.5px">样本量决定的不只是"能不能信"，还有"能信到什么程度"。下表不设"合格／不合格"的二值线，只标出每组样本实际能承担什么：<b>定量级</b>（n≥30，可引用具体百分比）、<b>方向级</b>（20≤n&lt;30，只可比较相对高低）、<b>线索级</b>（n&lt;20，只提示"这里有声音"）。</p>
   <table>
-    <tr><th>产品</th><th class="num">有效样本</th><th>可支撑的结论强度</th></tr>
-    <tr><td>豆包 - 随时帮忙的 AI 助手</td><td class="num">18</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>豆包爱学（豆包旗下）</td><td class="num">26</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>豆包输入法</td><td class="num">29</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>DeepSeek - AI 智能助手</td><td class="num">22</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>千问 - 阿里AI助手</td><td class="num">16</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>Kimi</td><td class="num">24</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>元宝-腾讯全能AI助手</td><td class="num">22</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>文心 - 百度旗下全能AI助手</td><td class="num">22</td><td>样本不足 30 条，仅作方向提示</td></tr><tr><td>豆包（安卓版）</td><td class="num">6</td><td>样本不足 30 条，仅作方向提示</td></tr>
+    <tr><th>产品</th><th class="num">有效样本</th><th>结论强度</th><th class="num">95% 抽样误差</th></tr>
+    <tr class="grp"><td colspan="4">豆包系 · 本报告主结论的对象</td></tr><tr><td>豆包 - 随时帮忙的 AI 助手</td><td class="num">18</td><td><span style="color:#6b7280;font-weight:600">线索级</span></td><td class="num">±23</td></tr><tr><td>豆包爱学（豆包旗下）</td><td class="num">26</td><td><span style="color:#f0913a;font-weight:600">方向级</span></td><td class="num">±19</td></tr><tr><td>豆包输入法</td><td class="num">29</td><td><span style="color:#f0913a;font-weight:600">方向级</span></td><td class="num">±18</td></tr><tr><td>豆包（安卓版）</td><td class="num">6</td><td><span style="color:#6b7280;font-weight:600">线索级</span></td><td class="num">±40</td></tr>
+    <tr class="grp"><td colspan="4">竞品 · 仅用于横向对照</td></tr><tr><td>DeepSeek - AI 智能助手</td><td class="num">22</td><td><span style="color:#f0913a;font-weight:600">方向级</span></td><td class="num">±21</td></tr><tr><td>千问 - 阿里AI助手</td><td class="num">16</td><td><span style="color:#6b7280;font-weight:600">线索级</span></td><td class="num">±25</td></tr><tr><td>Kimi</td><td class="num">24</td><td><span style="color:#f0913a;font-weight:600">方向级</span></td><td class="num">±20</td></tr><tr><td>元宝-腾讯全能AI助手</td><td class="num">22</td><td><span style="color:#f0913a;font-weight:600">方向级</span></td><td class="num">±21</td></tr><tr><td>文心 - 百度旗下全能AI助手</td><td class="num">22</td><td><span style="color:#f0913a;font-weight:600">方向级</span></td><td class="num">±21</td></tr>
   </table>
+  <p class="cap">"95% 抽样误差"按最理想情形估算——简单随机抽样、且比例取最不利的 50%，即 ±1.96×0.5/√n，单位为百分点。真实样本是便利样本、且受 App Store 排序机制影响，实际误差只会更大，所以这一列是<b>误差下界</b>，用来说明比例数字的精度天花板。数据来源：<code>data/tagged.json</code>。</p>
 
   <div class="warn">
     <b>四条必须说明的局限：</b><br>
     ① <b>渠道单一</b>——结论主要来自 iOS 用户。安卓侧仅豌豆荚 9 条；<b>社交媒体渠道经实测多数被平台风控拦截</b>（小红书 IP 限制、抖音与贴吧要求验证码、知乎 403 风控）。B站 是唯一探通的社交渠道，但受"每条视频限 3 条"所限只采到 74 条、纳入分析 22 条，且时间集中于 3 天内，只能作定性旁证（见第 09 节）。<b>社交媒体观点对主结论不构成数据支撑。</b><br>
     ② <b>时间偏置</b>——苹果接口每页只返回 10 条，样本天然偏向"最新/最有帮助"，<b>不能用于推断长期趋势</b>。<br>
-    ③ <b>总量偏小</b>——豆包系有效样本 79 条，单产品线普遍低于 30 条，产品线级结论只能作为方向提示。<br>
+    ③ <b>总量偏小</b>——豆包系有效样本 79 条，其中主结论所依托的主 App 只有 18 条；上表里没有任何一组达到"可引用具体百分比"的定量级。<b>因此正文的比例数字请按"量级与排序"读：哪个痛点排第一是可靠的，某个痛点精确占多少不是本报告能支撑的结论。</b><br>
     ④ <b>评分结构失真</b>——因排序机制，样本中 1★ 占比远高于真实分布，<b>不可与 App Store 显示的 4.66 分对比</b>。
   </div>
 </section>

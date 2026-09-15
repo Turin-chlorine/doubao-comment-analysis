@@ -209,6 +209,22 @@ const bubbleRows = rank.map((t) => ({ t, n: topicN(t), x: reachPct(t), y: topicA
 const compNames = Object.keys(r.compByProduct);
 const catNames = ['答案质量', '功能与策略', '性能稳定', '指令与风格'];
 const catMap = { '答案质量': 'T1', '功能与策略': 'T8', '性能稳定': 'T6', '指令与风格': 'T2' };
+// 样本结构表：按"结论强度"分档（不给二值判断），并给出最理想抽样下的误差下界 ±1.96·0.5/√n
+const MAIN_APP_NAME = '豆包 - 随时帮忙的 AI 助手';
+const chanRows = Object.keys(r.byChannel).map((k) => {
+  const v = r.byChannel[k];
+  const err = Math.round(1.96 * 0.5 / Math.sqrt(v.valid) * 100);
+  const tier = v.valid >= 30 ? '定量级' : (v.valid >= 20 ? '方向级' : '线索级');
+  return {
+    name: k, n: v.valid, err: err, tier: tier,
+    isTarget: tagged.some((x) => x.product_name === k && x.is_target_product === 1),
+  };
+}).sort((a, b) => (b.isTarget ? 1 : 0) - (a.isTarget ? 1 : 0)); // 仅分组，组内保持采集顺序
+const TIER_COLOR = { '定量级': C.pos, '方向级': C.warn, '线索级': C.muted };
+const chanRowHtml = (x) => '<tr><td>' + esc(x.name) + '</td><td class="num">' + x.n + '</td><td><span style="color:' + TIER_COLOR[x.tier] + ';font-weight:600">' + x.tier + '</span></td><td class="num">±' + x.err + '</td></tr>';
+const chanGrpHtml = (label, list) => list.length ? '<tr class="grp"><td colspan="4">' + label + '</td></tr>' + list.map(chanRowHtml).join('') : '';
+const mainAppN = (r.byChannel[MAIN_APP_NAME] || {}).valid || 0;
+
 const series = [
   { k: '豆包系', c: C.neg, v: catNames.map((c) => 100 * topicN(catMap[c]) / r.targetValid) },
 ].concat(compNames.slice(0, 4).map((p, i) => ({
@@ -250,6 +266,7 @@ table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:500;font-size:12.5px;background:#fafbfc}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.grp td{background:#f2f4f6;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.3px;padding:8px 12px}
 .chart{margin:16px 0 6px}
 .cap{font-size:12px;color:var(--muted);margin:8px 0 0}
 .card{border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:14px}
@@ -335,16 +352,19 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
   <p style="font-size:13.5px">按预设规则剔除无信息量内容，共剔除 <b>${r.invalid}</b> 条（占 ${pct(r.invalid, r.total)}）：${Object.keys(r.exclReasons).map((k)=>k+' '+r.exclReasons[k]+' 条').join('；')}。</p>
 
   <h3>样本结构与局限（必须一并阅读）</h3>
+  <p style="font-size:13.5px">样本量决定的不只是"能不能信"，还有"能信到什么程度"。下表不设"合格／不合格"的二值线，只标出每组样本实际能承担什么：<b>定量级</b>（n≥30，可引用具体百分比）、<b>方向级</b>（20≤n&lt;30，只可比较相对高低）、<b>线索级</b>（n&lt;20，只提示"这里有声音"）。</p>
   <table>
-    <tr><th>产品</th><th class="num">有效样本</th><th>可支撑的结论强度</th></tr>
-    ${Object.keys(r.byChannel).map((k)=>{const v=r.byChannel[k];return '<tr><td>'+k+'</td><td class="num">'+v.valid+'</td><td>'+(v.valid>=30?'可用于定量结论':'样本不足 30 条，仅作方向提示')+'</td></tr>';}).join('')}
+    <tr><th>产品</th><th class="num">有效样本</th><th>结论强度</th><th class="num">95% 抽样误差</th></tr>
+    ${chanGrpHtml('豆包系 · 本报告主结论的对象', chanRows.filter((x)=>x.isTarget))}
+    ${chanGrpHtml('竞品 · 仅用于横向对照', chanRows.filter((x)=>!x.isTarget))}
   </table>
+  <p class="cap">"95% 抽样误差"按最理想情形估算——简单随机抽样、且比例取最不利的 50%，即 ±1.96×0.5/√n，单位为百分点。真实样本是便利样本、且受 App Store 排序机制影响，实际误差只会更大，所以这一列是<b>误差下界</b>，用来说明比例数字的精度天花板。数据来源：<code>data/tagged.json</code>。</p>
 
   <div class="warn">
     <b>四条必须说明的局限：</b><br>
     ① <b>渠道单一</b>——结论主要来自 iOS 用户。安卓侧仅豌豆荚 9 条；<b>社交媒体渠道经实测多数被平台风控拦截</b>（小红书 IP 限制、抖音与贴吧要求验证码、知乎 403 风控）。B站 是唯一探通的社交渠道，但受"每条视频限 3 条"所限只采到 74 条、纳入分析 22 条，且时间集中于 3 天内，只能作定性旁证（见第 09 节）。<b>社交媒体观点对主结论不构成数据支撑。</b><br>
     ② <b>时间偏置</b>——苹果接口每页只返回 10 条，样本天然偏向"最新/最有帮助"，<b>不能用于推断长期趋势</b>。<br>
-    ③ <b>总量偏小</b>——豆包系有效样本 ${r.targetValid} 条，单产品线普遍低于 30 条，产品线级结论只能作为方向提示。<br>
+    ③ <b>总量偏小</b>——豆包系有效样本 ${r.targetValid} 条，其中主结论所依托的主 App 只有 ${mainAppN} 条；上表里没有任何一组达到"可引用具体百分比"的定量级。<b>因此正文的比例数字请按"量级与排序"读：哪个痛点排第一是可靠的，某个痛点精确占多少不是本报告能支撑的结论。</b><br>
     ④ <b>评分结构失真</b>——因排序机制，样本中 1★ 占比远高于真实分布，<b>不可与 App Store 显示的 4.66 分对比</b>。
   </div>
 </section>
