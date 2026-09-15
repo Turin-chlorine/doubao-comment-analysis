@@ -9,6 +9,10 @@ const OUTDIR = path.join(ROOT, 'report');
 
 const stats = JSON.parse(fs.readFileSync(path.join(DATA, 'stats.json'), 'utf8'));
 const tagged = JSON.parse(fs.readFileSync(path.join(DATA, 'tagged.json'), 'utf8'));
+// B站 渠道（平行支线，缺失时报告自动降级，不阻断生成）
+let bili = null, biliTagged = [];
+try { bili = JSON.parse(fs.readFileSync(path.join(DATA, 'bili', 'stats_bili.json'), 'utf8')); } catch (e) {}
+try { biliTagged = JSON.parse(fs.readFileSync(path.join(DATA, 'bili', 'tagged_bili.json'), 'utf8')); } catch (e) {}
 
 const valid = tagged.filter((r) => r.is_valid === 1);
 const targetValid = valid.filter((r) => r.is_target_product === 1);
@@ -324,7 +328,7 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
     <tr><td>黑猫投诉</td><td>失败</td><td class="num">0</td><td>搜索页为 JS 渲染，接口需客户端签名</td></tr>
     <tr><td>应用宝 / 小米应用商店</td><td>失败</td><td class="num">0</td><td>前者为 SPA 无可用接口，后者显示"维护中"</td></tr>
     <tr><td>小红书 / 抖音 / 知乎 / 贴吧</td><td>失败</td><td class="num">0</td><td>均被平台风控拦截：IP 限制（小红书）、验证码（抖音、贴吧）、403 风控（知乎）</td></tr>
-    <tr><td>B站</td><td>页面可访问</td><td class="num">0</td><td>搜索页能正常渲染，但内容为视频列表而非用户评论，评论区需签名逻辑，本次未采集</td></tr>
+    <tr><td>B站（社交渠道）</td><td>部分成功</td><td class="num">74</td><td>搜索页与评论接口均可访问，但未登录访客每条视频上限 3 条热门评论；经人工复核纳入分析 22 条（见第 09 节）</td></tr>
   </table>
 
   <h3>清洗规则与结果</h3>
@@ -338,7 +342,7 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
 
   <div class="warn">
     <b>四条必须说明的局限：</b><br>
-    ① <b>渠道单一</b>——结论主要来自 iOS 用户。安卓侧仅豌豆荚 9 条；<b>社交媒体渠道经实测均被平台风控拦截</b>（小红书 IP 限制、抖音与贴吧要求验证码、知乎 403 风控），B站搜索页可访问但只返回视频列表、不含评论正文，因此社交媒体观点完全未被覆盖。<br>
+    ① <b>渠道单一</b>——结论主要来自 iOS 用户。安卓侧仅豌豆荚 9 条；<b>社交媒体渠道经实测多数被平台风控拦截</b>（小红书 IP 限制、抖音与贴吧要求验证码、知乎 403 风控）。B站 是唯一探通的社交渠道，但受"每条视频限 3 条"所限只采到 74 条、纳入分析 22 条，且时间集中于 3 天内，只能作定性旁证（见第 09 节）。<b>社交媒体观点对主结论不构成数据支撑。</b><br>
     ② <b>时间偏置</b>——苹果接口每页只返回 10 条，样本天然偏向"最新/最有帮助"，<b>不能用于推断长期趋势</b>。<br>
     ③ <b>总量偏小</b>——豆包系有效样本 ${r.targetValid} 条，单产品线普遍低于 30 条，产品线级结论只能作为方向提示。<br>
     ④ <b>评分结构失真</b>——因排序机制，样本中 1★ 占比远高于真实分布，<b>不可与 App Store 显示的 4.66 分对比</b>。
@@ -456,7 +460,67 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
 </section>
 
 <section>
-  <h2><span class="n">09 附录</span>完整统计与数据清单</h2>
+  <h2><span class="n">09 渠道交叉验证</span>B站：换一群人，结论还剩多少</h2>
+  ${!bili ? '<p>（B站 渠道数据未生成）</p>' : [
+    '<p style="font-size:13.5px">主数据集的所有结论都来自 iOS 应用商店。为检验"这些痛点是不是只在应用商店里存在"，我另外采集了 B站 评论（关键词搜索命中的豆包相关视频下的评论）。<b>先说结论：这条渠道技术上探通了，但样本量不足，只能做定性旁证，不能做统计对比。</b></p>',
+
+    '<h3>样本漏斗：为什么最后只剩这么点</h3>',
+    '<table>',
+    '<tr><th>环节</th><th class="num">条数</th><th>说明</th></tr>',
+    '<tr><td>关键词搜索命中视频（去重）</td><td class="num">245</td><td>8 个关键词 × 2 页</td></tr>',
+    '<tr><td>标题含「豆包」的视频</td><td class="num">208</td><td>关键词召回含同名噪声</td></tr>',
+    '<tr><td>实际抓取的一级评论（去重）</td><td class="num">74</td><td>仅 31 个视频有评论产出</td></tr>',
+    '<tr><td>通过清洗规则</td><td class="num">66</td><td>剔除 8 条无辨识语义</td></tr>',
+    '<tr style="background:#fff8f8"><td><b>人工复核后纳入分析</b></td><td class="num"><b>' + bili.n + '</b></td><td>逐条判定"是否在谈豆包产品"</td></tr>',
+    '</table>',
+    '<p class="cap">B站 对未登录访客硬性封顶：<b>每条视频只返回 3 条「最热」评论</b>。实测 pn=2 返回 0 条；<code>x/v2/reply/main</code> 的 <code>next=1</code> 直接 <code>is_end=true</code>（<code>all_count=10607</code>）；需要登录态的 <code>wbi/main</code> 返回 <code>-403 访问权限不足</code>（wbi 签名本身是正确的）。因此样本量只能靠扩大视频覆盖面，而覆盖面又受风控封顶。逐条判定理由见 <code>data/bili/relevance_review.md</code>。</p>',
+
+    '<h3>B站 负面主题分布（n=' + bili.neg + '）</h3>',
+    '<table>',
+    '<tr><th>主题</th><th class="num">条数</th><th class="num">占负面比例</th></tr>',
+    bili.topicRank.map((t) => '<tr><td>' + T[t] + '</td><td class="num">' + (bili.topicCount[t] || 0) + '</td><td class="num">' + pct(bili.topicCount[t] || 0, bili.neg) + '</td></tr>').join(''),
+    '</table>',
+
+    '<h3>与主数据集对照：同一主题是否复现</h3>',
+    '<table>',
+    '<tr><th>主题</th><th class="num">App Store 主数据集</th><th class="num">B站</th><th>是否复现</th></tr>',
+    ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8'].map((t) => {
+      const a = 100 * topicN(t) / stats.targetValid;
+      const b = 100 * (bili.topicCount[t] || 0) / bili.n;
+      const rep = (topicN(t) > 0 && (bili.topicCount[t] || 0) > 0) ? '✔ 两渠道均出现' : ((bili.topicCount[t] || 0) > 0 ? '— 仅 B站' : '— 仅主数据集');
+      return '<tr><td>' + SHORT[t] + '</td><td class="num">' + a.toFixed(1) + '%</td><td class="num">' + b.toFixed(1) + '%</td><td>' + rep + '</td></tr>';
+    }).join(''),
+    '</table>',
+    '<p class="cap"><b>这张表不是强弱对比。</b>两个渠道的抽样框、人群、时间窗口、口径都不同（B站 无星级评分），百分比并列只为观察"同一主题是否在另一群人里也出现"。B站 的「功能与策略」占比最高（' + pct(bili.topicCount['T8'] || 0, bili.neg) + '），但其成因高度集中于刚发布的豆包手机助手（收费不明、绑定手机、能力边界、生态阻力），是<b>一次新品发布的舆情切片</b>，不能读成"B站 用户最不满功能策略"。</p>',
+
+    '<h3>能支持什么 / 不能支持什么</h3>',
+    '<div class="box" style="background:#f8fbff;border-color:#dbeafe">',
+    '<b>能支持（定性旁证）</b><br>',
+    '① <b>「答案质量」在完全不同的平台上被独立提出</b>——B站 4 条答案质量负评中，两条分别指向"离谱回答"与"疑似敷衍作答"，与主数据集第一大痛点同源。两个平台、两套人群、两套表达方式指向同一问题。',
+    '<br><br><b>不能支持</b><br>',
+    '① 任何形如"B站 用户最不满 X"的比例性结论（' + bili.n + ' 条样本、3 天窗口，不具代表性，单条即造成 ±4.5pt 波动）；② 任何时间趋势；③ 与主数据集的强弱对比。',
+    '</div>',
+
+    '<h3>样本原话（可溯源）</h3>',
+    biliTagged.filter((r) => r.sentiment === '负' && r.main_topic !== 'T0')
+      .sort((a, b2) => (b2.severity || 0) - (a.severity || 0) || (b2.like || 0) - (a.like || 0))
+      .slice(0, 4)
+      .map((r) => '<p style="font-size:13px;margin:8px 0"><b>' + r.bili_id + '</b>（' + SHORT[r.main_topic] + ' · 赞' + (r.like || 0) + ' · ' + r.date + '）<br>「' + esc(String(r.content).replace(/\s+/g, ' ').slice(0, 150)) + '」</p>')
+      .join(''),
+
+    '<h3>这一节的局限</h3>',
+    '<ol style="font-size:13.5px">',
+    '<li><b>每条视频上限 3 条</b>——返回的是点赞最高的评论，偏梗化，可能<b>低估</b>普通用户的功能性抱怨。</li>',
+    '<li><b>时间高度集中</b>——有效样本全部落在 2026-09-13 ~ 09-15 三天内，主题集中于刚发布的豆包手机助手。这是<b>事件切片，不是口碑横截面</b>。</li>',
+    '<li><b>样本量过小</b>——' + bili.n + ' 条（负面 ' + bili.neg + ' 条）不足以支撑比例推断。</li>',
+    '<li><b>人群偏置</b>——B站 以年轻群体为主，与 iOS 用户画像不同，差异部分来自人群而非产品。</li>',
+    '<li><b>相关性判定含人工环节</b>——66 条有效评论由人工逐条判定是否在谈产品（自动规则会漏掉以 <code>@豆包</code> 开头的评论）。判定理由已全量留档，可复核。</li>',
+    '</ol>',
+  ].join('')}
+</section>
+
+<section>
+  <h2><span class="n">10 附录</span>完整统计与数据清单</h2>
   <h3>附录 A · 各主题完整统计</h3>
   <table>
     <tr><th>主题</th><th class="num">条数</th><th class="num">占负面</th><th class="num">占有效样本</th><th class="num">平均严重度</th><th class="num">诉求率</th><th class="num">3 级严重度</th></tr>
@@ -479,6 +543,9 @@ code{background:#f2f4f6;border-radius:4px;padding:1px 5px;font-size:12.5px}
     <tr><td><code>data/stats.md</code></td><td>量化统计表</td></tr>
     <tr><td><code>data/selfcheck.md</code></td><td>打标自检记录（20 条复核，一致率 98.8%）</td></tr>
     <tr><td><code>data/xhr_*/</code>、<code>scripts/*.log</code></td><td>各渠道探测过程的原始记录</td></tr>
+    <tr><td><code>data/bili/bili_all_raw.json</code></td><td>B站 原始采集结果（74 条一级评论 + 208 个视频元数据）</td></tr>
+    <tr><td><code>data/bili/relevance_review.md</code></td><td>B站 相关性人工复核：66 条逐条纳入/排除理由</td></tr>
+    <tr><td><code>data/bili/tags_bili.txt</code>、<code>stats_bili.md</code></td><td>B站 打标结果与渠道统计</td></tr>
   </table>
 
   <h3>附录 C · 打标自检</h3>

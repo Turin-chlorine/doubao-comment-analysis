@@ -1,0 +1,330 @@
+{
+  "meta": {
+    "platform": "bilibili",
+    "endpoint": "x/v2/reply/wbi/main",
+    "collectedAt": "2026-09-15T06:26:37.097Z",
+    "modes": [
+      3,
+      2
+    ],
+    "maxPagesPerMode": 6,
+    "ps": 20,
+    "samplingFrame": "按评论数降序选取的 title 含\"豆包\" 的视频，其一级评论（热度+时间两个排序，逐页翻取）",
+    "stats": {
+      "calls": 50,
+      "errs": 50,
+      "dup": 0,
+      "pagesUsed": 0,
+      "signOk": false
+    }
+  },
+  "videos": [
+    {
+      "aid": 117047925350126,
+      "bvid": "BV1pnun6XETL",
+      "title": "豆包输入法太坏了",
+      "author": "VIRTUAL結城真",
+      "play": 81845,
+      "review": 10607,
+      "pubdate": 1786009850,
+      "keywords": [
+        "豆包 输入法"
+      ]
+    },
+    {
+      "aid": 116533300825175,
+      "bvid": "BV1XYdPBrEXE",
+      "title": "豆包收费冲上热搜：国产AI最大的敌人不是OpenAI，是用户信任",
+      "author": "老烟斗官方",
+      "play": 4748223,
+      "review": 8056,
+      "pubdate": 1778157377,
+      "keywords": [
+        "豆包 收费"
+      ]
+    },
+    {
+      "aid": 116861261845811,
+      "bvid": "BV1KaMw6BEsr",
+      "title": "你的虚拟好友即将下线！豆包、千问将于7月15日关停智能体功能",
+      "author": "大象新闻",
+      "play": 2239084,
+      "review": 7899,
+      "pubdate": 1783161490,
+      "keywords": [
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 116819402691880,
+      "bvid": "BV1pC7E6qEXV",
+      "title": "豆包收费后，现状？",
+      "author": "包脚子BroMax",
+      "play": 453286,
+      "review": 3280,
+      "pubdate": 1782522682,
+      "keywords": [
+        "豆包 收费"
+      ]
+    },
+    {
+      "aid": 115297172393209,
+      "bvid": "BV11NHJzTEbE",
+      "title": "【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小白适用！学完即接单，带你玩转AI视频赛道！",
+      "author": "AI视频教程_",
+      "play": 5764213,
+      "review": 2860,
+      "pubdate": 1759295561,
+      "keywords": [
+        "豆包 难用"
+      ]
+    },
+    {
+      "aid": 114238328735800,
+      "bvid": "BV13goQY7EuN",
+      "title": "豆包豆包，我可以叫你妈妈吗",
+      "author": "齐木楠雄0",
+      "play": 527670,
+      "review": 2786,
+      "pubdate": 1743138772,
+      "keywords": [
+        "豆包 难用"
+      ]
+    },
+    {
+      "aid": 116866060190824,
+      "bvid": "BV11ETy6WEzL",
+      "title": "你的虚拟好友即将下线！豆包千问将于7月15日关停智能体功能！",
+      "author": "胖胖娜m",
+      "play": 288555,
+      "review": 2697,
+      "pubdate": 1783234728,
+      "keywords": [
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 117197124994478,
+      "bvid": "BV1qSt56VEbN",
+      "title": "豆包SD2.5+30秒长视频，无需会员，AI视频无限生成，多账号管理器，无水印下载",
+      "author": "我的名字叫韩哥",
+      "play": 21161,
+      "review": 2116,
+      "pubdate": 1788286396,
+      "keywords": [
+        "豆包 难用"
+      ]
+    },
+    {
+      "aid": 116633276254432,
+      "bvid": "BV1wvG467EBu",
+      "title": "别什么都往豆包上发，后台是有审核员的！",
+      "author": "小聪明张建国",
+      "play": 5245198,
+      "review": 2046,
+      "pubdate": 1780048800,
+      "keywords": [
+        "豆包 缺点"
+      ]
+    },
+    {
+      "aid": 116862503362189,
+      "bvid": "BV1jVMP6bE4w",
+      "title": "我将强力抵制豆包智能体下架",
+      "author": "哈灵顿夫人",
+      "play": 91376,
+      "review": 1590,
+      "pubdate": 1783180441,
+      "keywords": [
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 115903719018511,
+      "bvid": "BV158kKBLErq",
+      "title": "还能这么用？超全！豆包 AI 使用指南丨省钱丨创作丨学习丨陪伴……",
+      "author": "橙红Iris",
+      "play": 372059,
+      "review": 1454,
+      "pubdate": 1768550538,
+      "keywords": [
+        "豆包 难用"
+      ]
+    },
+    {
+      "aid": 116528133441136,
+      "bvid": "BV1r9RtBHEhW",
+      "title": "豆包收费牛逼",
+      "author": "牛逼哥大型纪录片",
+      "play": 387814,
+      "review": 1421,
+      "pubdate": 1778078352,
+      "keywords": [
+        "豆包 收费"
+      ]
+    },
+    {
+      "aid": 116581736647199,
+      "bvid": "BV1B45k6RE6Q",
+      "title": "豆包app怎么越来越笨了，幻觉严重到像吃了毒蘑菇",
+      "author": "tech_log",
+      "play": 162640,
+      "review": 1397,
+      "pubdate": 1778896169,
+      "keywords": [
+        "豆包 缺点"
+      ]
+    },
+    {
+      "aid": 117244839334252,
+      "bvid": "BV1nbYN6eE22",
+      "title": "大肥鱼 vs 豆包",
+      "author": "小猪P_",
+      "play": 604784,
+      "review": 1370,
+      "pubdate": 1789014481,
+      "keywords": [
+        "豆包 评测"
+      ]
+    },
+    {
+      "aid": 116945953295025,
+      "bvid": "BV1ofKz6oExb",
+      "title": "豆包下架智能体：你的AI对象，根本不属于你",
+      "author": "江寒在此",
+      "play": 181632,
+      "review": 1347,
+      "pubdate": 1784454171,
+      "keywords": [
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 117257288025714,
+      "bvid": "BV11AY961E2o",
+      "title": "今天，豆包手机助手消费者版 正式发布！一条视频带你全面了解！",
+      "author": "豆包",
+      "play": 292315,
+      "review": 1132,
+      "pubdate": 1789351200,
+      "keywords": [
+        "豆包AI",
+        "豆包 难用",
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 117252070311676,
+      "bvid": "BV1eHY76oEJ2",
+      "title": "努比亚NaviX Ultra首发测评：豆包手机助手消费版到底有多强？",
+      "author": "晨钟酱Official",
+      "play": 242884,
+      "review": 1122,
+      "pubdate": 1789353000,
+      "keywords": [
+        "豆包AI",
+        "豆包 评测",
+        "豆包 收费"
+      ]
+    },
+    {
+      "aid": 116919210350430,
+      "bvid": "BV14LN86GE1R",
+      "title": "豆包智能体下线前最后五分钟",
+      "author": "mymc11451",
+      "play": 156253,
+      "review": 1066,
+      "pubdate": 1784045682,
+      "keywords": [
+        "豆包 智能助手",
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 117240108287237,
+      "bvid": "BV1TXYx6zETG",
+      "title": "豆包出手机啦我们傻妞提前来了",
+      "author": "吐槽炸锅美乐迪",
+      "play": 380387,
+      "review": 1008,
+      "pubdate": 1788943717,
+      "keywords": [
+        "豆包 智能助手"
+      ]
+    },
+    {
+      "aid": 116917834614009,
+      "bvid": "BV1yvNb6zEZp",
+      "title": "豆包智能体下架了你还能玩这些AI",
+      "author": "北岗清风",
+      "play": 168847,
+      "review": 966,
+      "pubdate": 1784024872,
+      "keywords": [
+        "豆包 下架"
+      ]
+    },
+    {
+      "aid": 116613143598376,
+      "bvid": "BV1XbLh6mE6c",
+      "title": "避雷豆包APP",
+      "author": "董子轩-_",
+      "play": 29860,
+      "review": 916,
+      "pubdate": 1779375462,
+      "keywords": [
+        "豆包 缺点"
+      ]
+    },
+    {
+      "aid": 117269619283735,
+      "bvid": "BV1MNYy6WEgY",
+      "title": "琵琶曲 | 大肥鱼 vs 豆包",
+      "author": "小猪P_",
+      "play": 379534,
+      "review": 905,
+      "pubdate": 1789392549,
+      "keywords": [
+        "豆包AI",
+        "豆包 评测"
+      ]
+    },
+    {
+      "aid": 115582804493931,
+      "bvid": "BV12vyABwEhF",
+      "title": "豆包输入法内置小语言模型这一块儿",
+      "author": "叠态",
+      "play": 85556,
+      "review": 846,
+      "pubdate": 1763653993,
+      "keywords": [
+        "豆包 输入法"
+      ]
+    },
+    {
+      "aid": 116944258728161,
+      "bvid": "BV1mhKv68EPQ",
+      "title": "豆包真能干活了！【豆包Agent入门教程】",
+      "author": "秋芝2046",
+      "play": 1047328,
+      "review": 691,
+      "pubdate": 1784430000,
+      "keywords": [
+        "豆包 难用"
+      ]
+    },
+    {
+      "aid": 116889648959904,
+      "bvid": "BV16vME66EMo",
+      "title": "豆包、千问突发下架智能体！陪伴半年的AI，最后只剩下一张截图？",
+      "author": "阿豪又在摸鱼",
+      "play": 212518,
+      "review": 572,
+      "pubdate": 1783594932,
+      "keywords": [
+        "豆包 下架"
+      ]
+    }
+  ],
+  "comments": []
+}
