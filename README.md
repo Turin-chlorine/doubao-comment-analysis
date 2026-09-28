@@ -1,91 +1,35 @@
-# 豆包用户口碑分析 · 从评论抓取到产品改进报告
+# 项目三｜豆包用户之声：从评论到改进
 
-用评论抓取 + AI 分析替代传统用户访谈，产出一份带数据图表的 HTML 产品改进报告。
+打开 [index.html](index.html) 即可离线展示这份 AI 产品岗位作品：用户原话 → 痛点归因 → 改进方案 → 验证实验。页面支持评分、场景和痛点筛选、原话索引上下两处翻页与页码跳转、证据抽屉、可点击方案原型、面试模式与打印。翻页不会自动滚动页面。
 
-**一句话结论**：豆包最大的问题不是"不够智能"，而是"说错了不认账"——答案质量占其负面样本的 28.8%，而 5 款竞品在同一问题上的负面提及率只有 4.2%–9.1%。
+本版只分析**应用宝豆包主应用的 500 条公开评论**（Android 包名 `com.larus.nova`）。采集快照为 2026-09-27，180 天窗口为 2026-03-31 至 2026-09-27；入选评论日期为 2026-04-06 至 2026-09-26。其他来源文件仅留作研究记录，**不计入报告统计**。单一商店的便利样本不能代表全部豆包用户或全部安卓用户。
 
-## 交付物
+## 文件
 
-| 文件 | 说明 |
-|---|---|
-| `report/report.html` | **最终报告**（自包含单文件，下载后双击打开；图表为内联 SVG 无外部依赖）。<br>⚠️ GitHub 网页不渲染 `.html`，在线点开只会看到源码——请 `clone` 后本地打开 |
-| `data/crawl_log.md` | 采集日志：每个渠道的实际条数与失败原因 |
-| `data/taxonomy.md` | 痛点分类体系：8 个主题 + 判定边界 + 正反例 |
-| `data/tagged.json` | 全量打标结果（266 条） |
-| `data/stats.md` | 量化统计表 |
-| `data/sample_coded.md` | 60 条分层样本的开放式编码 |
-| `data/selfcheck.md` | 打标自检记录（20 条复核） |
-| `data/comments.csv` | 统一格式的原始评论 |
-| `data/bili/stats_bili.md` | **B站 渠道交叉验证**：另一群人是否说出同样的问题 |
-| `data/bili/relevance_review.md` | B站 相关性人工复核：66 条逐条纳入/排除理由 |
-| `annotation/annotate.html` | **人工打标一致性验证工具**（双盲，离线可用，约 15 分钟标完 40 条） |
-| `annotation/README.md` | 该验证的操作说明与 Kappa 判读标准 |
-| `docs/需求覆盖对照.md` | **原始需求逐条对照**：哪条达到、哪条超出、哪条没做到 |
+- `index.html`：内嵌样式、交互和去身份的分析数据，无 CDN 依赖。
+- `data/raw/` 与采集日志：公开响应原件、采集时间、状态与校验信息。
+- `data/yyb_reviews.json`：应用宝预清洗记录；`data/curation_log.json`：排除与选样记录。
+- `data/reviews.json`：最终 500 条标准化记录，含 ID、来源、链接、日期、原文、评分、版本和采集时间。
+- `data/annotations.json`：主题初标及核心引文人工复核结果。
+- `data/annotations_user_defaults.json`：从浏览器导入并固化为默认值的 147 条用户痛点与情绪修订。
+- `METHODOLOGY.md`：研究方法与标注边界；`INTERVIEW.md`：三分钟讲述稿。
+- `collect_yyb.py`、`curate.py`、`annotate.py`、`build.py`：可重建流水线。
 
-## 数据
+## 重建与验收
 
-- **266 条真实评论**：豆包系（主 App / 爱学 / 输入法 / 安卓版）112 条 + 5 款竞品 154 条
-- 采集时间：2026-09-15，来源：App Store 中国区 + 豌豆荚
-- 清洗后有效 185 条（剔除泛化好评/差评、乱码、过短内容）
-- **另采 B站 74 条**作为渠道交叉验证（见第 09 节），经人工复核纳入分析 22 条 —— 样本量不足，仅作**定性旁证**，不参与主结论的统计
+在本目录执行：
 
-## 四步流水线
-
-```
-P1 采集  →  P2 清洗与开放式编码  →  P3 分类体系  →  P4 全量打标  →  P5 报告
-comments.csv   sample_coded.md      taxonomy.md     tagged.json    report.html
-                                                    ↑
-                        B站 支线：bili_all_raw.json → 人工复核 → tags_bili.txt
+```powershell
+python collect_yyb.py --offline --max 800
+python curate.py
+python annotate.py
+python build.py
+python -m unittest test_pipeline.py
+node qa_browser.mjs
 ```
 
-1. **采集**：苹果评论 RSS 接口已失效，改用遗留的 `userReviewsRow` 接口；该接口 `page` 参数不生效，通过遍历 8 个 `sort` 维度横向扩展样本。
-2. **清洗**：机械规则（长度、乱码、非中文）+ 人工判定，剔除 30.5%。
-3. **编码**：分层抽样 60 条（产品线 × 评分极性），**只贴标签不归类**，标签保留用户原话（"当耳旁风""失忆"）而非产品术语。
-4. **打标**：按 8 个主题全量打标，附情绪 / 严重度 / 是否含诉求；20 条独立复核，一致率 98.8%。
+`--offline` 使用已保存的公开响应，不调用付费模型 API。`annotate.py` 使用当前助手设计的规则批量初标；若新增评论，须先审核清洗结果，再复核新增核心引文和机会点，不能只运行 `build.py` 就视为人工核验。
 
-## 复现
+评论详情中的痛点标签可从报告实际 12 类中多选或清空，情绪判断可改为正向、负向或混合。此版本已将用户浏览器中的 147 条痛点与情绪修订固化在 `data/annotations_user_defaults.json`，重新运行 `annotate.py` 仍会保留。后续页面修改按评论 ID 保存在当前浏览器，刷新后继续生效；痛点统计会重算，卡片和详情即时显示修订，并标明“本地修订统计”。原始评论和引文不变。当前版本不提供一键恢复原始标注；若浏览器禁止本地存储，页面会提示修改无法跨刷新保留。
 
-```bash
-node scripts/fetch_appstore_multi.js   # 采集 App Store（8 App × 8 排序）
-node scripts/fetch_wandoujia.js        # 采集豌豆荚
-node scripts/build_dataset.js          # 合并为 comments.csv
-node scripts/build_analysis.js         # 清洗 + 抽样 + 打标校验 + 统计
-node scripts/build_report.js           # 生成 report/report.html
-
-# B站 渠道支线（可选）
-node scripts/fetch_bili.js             # 关键词搜索 + 旧版评论接口
-node scripts/probe_reply_api.js        # 探测各评论端点可用性
-node scripts/fetch_bili_all.js         # 全量铺开（增量落盘 + 断点续采）
-node scripts/build_bili_dataset.js     # 清洗 + 相关性过滤
-node scripts/build_bili_analysis.js    # B站 统计 + 跨渠道交叉验证
-```
-
-### 打标可信度验证（需人工参与）
-
-```bash
-node scripts/build_annotation_kit.js   # 生成 40 条双盲样本 + 标注工具
-# → 打开 annotation/annotate.html 人工标注，结果存为 annotation/human_labels.csv
-node scripts/compute_kappa.js          # 计算 Cohen's Kappa + 输出分歧清单
-```
-
-## 已知局限（报告中已完整说明）
-
-> 与原始需求的逐条核对见 `docs/需求覆盖对照.md`：7 项要求中 5 项完整达成、1 项超出、1 项部分达成（社交媒体）。
-
-1. **渠道单一**：主结论来自 iOS App Store 与豌豆荚。社交媒体渠道经实测**多数被平台风控拦截**——小红书返回 IP 限制（300012）、抖音跳转验证码中间页、贴吧要求滑块验证、知乎返回 403 风控（40362）；黑猫投诉接口需客户端签名。**B站 是唯一探通的社交渠道**，但未登录访客每条视频上限 3 条评论，最终只够做定性旁证（22 条），不足以支撑主结论。
-2. **时间偏置**：苹果接口每页只返回 10 条，样本偏向"最新/最有帮助"，不能用于推断长期趋势。B站 样本则集中在 3 天内，是**新品发布的事件切片**。
-3. **总量偏小**：豆包系有效样本 79 条，其中主结论所依托的主 App 仅 18 条。报告按"结论强度"分三档标注（定量级 n≥30／方向级 20≤n<30／线索级 n<20），**本批样本无一组达到定量级**；即便按最理想的随机抽样估算，比例估计的 95% 误差也在 ±18 个百分点以上。故本报告只下"排序类"结论（哪个痛点最突出），不下"百分比类"结论。
-4. **打标由 AI 单方完成**：自检（`data/selfcheck.md`，20 条两轮重标一致率 98.8%）只能证明标签**稳定**，不能证明**正确**——同一模型两轮打标的一致性天然偏高。为此已备好人工验证工具（`annotation/`，40 条双盲样本 + Cohen's Kappa 计算脚本）；**该验证尚待人工完成，Kappa 数值未出**。在此之前，本报告所有结论都应保留"AI 单方打标"这个前提。
-
-## 技术备注（Windows 环境）
-
-- 控制台 stdout 不便于采集，所有脚本**自行写文件**输出日志（见 `scripts/*.log`）
-- 无头浏览器渠道探测封装在 `scripts/cdp.js`（Chrome DevTools Protocol）
-- **不要 enable CDP 的 `Page` / `Runtime` 域**：`Page.navigate` 与 `Runtime.evaluate` 并不依赖它们，而部分站点（如贴吧）会推送超大事件，触发 undici `Max decompressed message size exceeded` 并强制断开 WebSocket（code=1006），使该会话后续所有命令全部超时。社交渠道的探测脚本曾因此静默失败且无任何日志
-- 探测多个站点时，**每个站点使用独立 Chrome 会话**，避免单站断连污染其余站点
-- 采集类脚本的日志一律用 **append** 模式，防止重跑失败覆盖掉上一轮证据
-- 各渠道探测的原始请求记录保留在 `data/xhr_*/`；社交渠道实测正文保留在 `data/social_test/`
-- **B站 的配额限制（实测）**：未登录访客每条视频只返回 3 条"最热"评论。`x/v2/reply` 的 `pn=2` 返回 0；`x/v2/reply/main` 的 `next=1` 直接 `is_end=true`（尽管 `all_count=10607`）；需登录态的 `x/v2/reply/wbi/main` 返回 `-403`——**wbi 签名（mixin_key + md5）本身实现正确，卡点是登录态而非算法**。累计约 160 次请求后触发 **HTTP 412 风控页**，为 IP 级临时封禁
-- **采集脚本必须增量落盘**：一次全量采集在写盘前被强杀，导致已抓到的 160 条评论全部丢失。改为每 5 条 flush 一次 + 记录已完成 ID + 断点续采后，重跑即成幂等
-- **本环境后台任务约 120 秒被强杀**：长采集应前台运行并自带时间预算（主动 flush 后退出），或拆成多次调用续采
-- 请求间隔需 ≥1.3s：低于此值约 160 次后即触发风控
+报告中的痛点频次是 500 条文本内的主题计数，不是独立用户数或故障发生率。方案优先级、成本和预期效果均待验证；智能体政策及实际数据能力尚未独立核实。

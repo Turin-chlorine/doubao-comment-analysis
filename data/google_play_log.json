@@ -1,0 +1,24 @@
+{
+  "collected_at": "2026-09-27T13:36:33+00:00",
+  "package": "com.larus.nova",
+  "raw_chinese_reviews": 38,
+  "valid_reviews": 15,
+  "excluded": {
+    "duplicate": 0,
+    "outside_window": 13,
+    "undated": 0,
+    "empty_or_spam": 10
+  },
+  "requests": [
+    {
+      "page": 1,
+      "url": "https://play.google.com/_/PlayStoreUi/data/batchexecute?hl=zh_CN&gl=CN",
+      "file": "data/raw/google_play_reviews_01.txt",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:06:42+00:00",
+      "bytes": 39071,
+      "sha256": "492cbcdc398f877f9f78e7e99daeb1823353e46e57c9e7bf8d36ba031b81733d",
+      "raw_reviews": 59
+    }
+  ]
+}

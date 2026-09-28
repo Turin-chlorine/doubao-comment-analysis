@@ -1,0 +1,72 @@
+[
+  {
+    "id": "v2ex-1240773",
+    "source": "V2EX 公开讨论",
+    "source_type": "community",
+    "source_url": "https://www.v2ex.com/t/1240773",
+    "date": "2026-09-09",
+    "title": "好奇想了解豆包、GPT 语音实时对话是如何做的",
+    "text": "自己想做一个产品，跟这个紧密相关。 早在 23 年 GPT 刚发布的时候，我用它当时的 Whisper 模型尝试过，基础体验很差（很明显，当时的技术还不成熟）。 现在我体验豆包、跟 GPT 的实时语音聊天，感觉已经非常好了：语气、延时、对用户打断的判断、实时的智能输出。 我跟 GPT 最新大模型聊了大概几天，最后的方案简单描述就是： 客户端收集录音并上传至语音模型服务，获取文字解析结果（输入内容可能是模糊或复杂的，所以需要语言模型识别，而不是单纯的语音转文字）。 将文字结果加上特定上下文，发送给语言模型，获取回答。 将回答发送给语音模型获取音频，并播放给用户。 这种方案会有很多细节需要注意，例如延时、用户打断、意图判断、上下文管理等。 延时也会很高，所以想请教：还有其他方向吗？",
+    "rating": null,
+    "version": null,
+    "collected_at": "2026-09-27T12:14:19+00:00",
+    "topic_id": "1240773",
+    "post_kind": "topic"
+  },
+  {
+    "id": "v2ex-17929168",
+    "source": "V2EX 公开讨论",
+    "source_type": "community",
+    "source_url": "https://www.v2ex.com/t/1222504#reply17929168",
+    "date": "2026-08-03",
+    "title": "回复：豆包 seed 2.1 pro，豆包任务模式",
+    "text": "@Jlzeng 感谢，这个还不是 token 计费啊。",
+    "rating": null,
+    "version": null,
+    "collected_at": "2026-09-27T12:14:21+00:00",
+    "topic_id": "1222504",
+    "post_kind": "reply"
+  },
+  {
+    "id": "v2ex-1222504",
+    "source": "V2EX 公开讨论",
+    "source_type": "community",
+    "source_url": "https://www.v2ex.com/t/1222504",
+    "date": "2026-06-24",
+    "title": "豆包 seed 2.1 pro，豆包任务模式",
+    "text": "各种媒体渠道上都是软文，到底实力如何，有大神真的使用过了吗？ 看着这发布会的架势和软文的攻势， 感觉会不会演变成 AI 界的“遥遥领先”",
+    "rating": null,
+    "version": null,
+    "collected_at": "2026-09-27T12:14:21+00:00",
+    "topic_id": "1222504",
+    "post_kind": "topic"
+  },
+  {
+    "id": "v2ex-17794126",
+    "source": "V2EX 公开讨论",
+    "source_type": "community",
+    "source_url": "https://www.v2ex.com/t/1222504#reply17794126",
+    "date": "2026-06-24",
+    "title": "回复：豆包 seed 2.1 pro，豆包任务模式",
+    "text": "已经订阅 68 套餐的了，试了试有几点体验和大家分享：1.Pro 改代码的能力不突出，bug 修复不够全面和 ds 的 v4 pro 体感比较接近，也可能和上下文不够大有关；2.模型额度 5 小时和周的比例很夸张，5 小时用尽能掉一周的 40%（见图二），工作主力用必须增加一档；3.Windows 电脑端还只能在虚拟机里面工作不能像 Codex 直接操作电脑；4.必须在手机订阅，Windows 网页看不见入口；5.Win 上用模型工具调用出现问题会异常中断，已经反馈了；",
+    "rating": null,
+    "version": null,
+    "collected_at": "2026-09-27T12:14:21+00:00",
+    "topic_id": "1222504",
+    "post_kind": "reply"
+  },
+  {
+    "id": "v2ex-17794332",
+    "source": "V2EX 公开讨论",
+    "source_type": "community",
+    "source_url": "https://www.v2ex.com/t/1222504#reply17794332",
+    "date": "2026-06-24",
+    "title": "回复：豆包 seed 2.1 pro，豆包任务模式",
+    "text": "@Jlzeng 感谢， 有使用过 workbuddy 吗， 做过比较吗？",
+    "rating": null,
+    "version": null,
+    "collected_at": "2026-09-27T12:14:21+00:00",
+    "topic_id": "1222504",
+    "post_kind": "reply"
+  }
+]

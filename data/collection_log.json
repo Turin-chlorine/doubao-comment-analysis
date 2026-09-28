@@ -1,0 +1,41 @@
+{
+  "collected_at": "2026-09-27T12:12:37+00:00",
+  "app_id": "6459478672",
+  "window_days": 180,
+  "raw_records": 11,
+  "valid_records": 6,
+  "excluded": {
+    "duplicate": 0,
+    "outside_window": 5,
+    "undated": 0,
+    "empty_or_spam": 0,
+    "hk_non_chinese": 9
+  },
+  "requests": [
+    {
+      "url": "https://apps.apple.com/cn/app/6459478672?see-all=reviews&platform=iphone",
+      "file": "data/raw/appstore_reviews_page.html",
+      "status": "cached",
+      "bytes": 312631,
+      "sha256": "1c09271b77d4808b30b9b2428565fbfd8f731368552fbaf8a3fcd167d1baec7e",
+      "fetched_at": "2026-09-27T12:12:36+00:00"
+    },
+    {
+      "url": "https://itunes.apple.com/cn/rss/customerreviews/page=1/id=6459478672/sortby=mostrecent/json",
+      "file": "data/raw/appstore_rss.json",
+      "status": "cached",
+      "bytes": 875,
+      "sha256": "8e91f614aa1bc28915de375926676804f02734cd3a30df84495a97007641cd27",
+      "fetched_at": "2026-09-27T12:12:37+00:00"
+    },
+    {
+      "url": "https://apps.apple.com/hk/app/6459478672?see-all=reviews&platform=iphone",
+      "file": "data/raw/appstore_hk_reviews_page.html",
+      "status": "cached",
+      "bytes": 236088,
+      "sha256": "446005df977a842e16f98a4496a03f8a99aae6b6368adb63e60b160b38be8d12",
+      "fetched_at": "2026-09-27T12:12:06+00:00"
+    }
+  ],
+  "note": "App Store RSS may return an empty feed. HTML cards are visible public reviews; the page may editorially select and reorder them."
+}

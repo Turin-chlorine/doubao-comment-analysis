@@ -1,0 +1,1310 @@
+{
+  "collected_at": "2026-09-27T16:46:23+00:00",
+  "app_id": "54330344",
+  "package": "com.larus.nova",
+  "raw_reviews": 800,
+  "valid_reviews": 517,
+  "excluded": {
+    "duplicate": 2,
+    "outside_window": 39,
+    "undated": 0,
+    "empty_or_spam": 242
+  },
+  "excluded_items": [
+    {
+      "id": "yyb-956445230906659776",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-954190730767056576",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-953812540329615104",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-953700459701367744",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-953478803744543040",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-953144099708878656",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-953113618941424448",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-953095867037147968",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-952399988705489728",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-951953361516155776",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-951589078089388736",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-950244371533323520",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-950228010045566912",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-950060790703513408",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-949192663530746816",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-948805206007641024",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-948376991481516736",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-947719515278946432",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-945526886185319808",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-945405586169585472",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-945014772944289600",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-944992668980138240",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-944739310624858816",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-944738389522148800",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-944671062839292800",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-944437692170428352",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-943800813897593728",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-942897992198025152",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-942850822430580608",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-942827761047728256",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-941871966470827840",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-941393680854704832",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-941080223110426560",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-940838135968747968",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-940710733743182784",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-940458571149005312",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-940335561079447232",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-940315053373972416",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-939958230072217920",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-938914550279257920",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-938823992241348544",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-938225288956793792",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-937798431014834752",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-937684613458743360",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-937230693389226176",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-937133493016883136",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-937071251460903744",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-936320818430902208",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-936062095090728640",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-935873100772818880",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-935565061476790720",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-935397164516389248",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-935291221199868864",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-935217229335912832",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-934844632067948480",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-934283932019995520",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-934109137206280064",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-934108371204128576",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933988987105632128",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933946998738940544",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933875231144305152",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933740859863085056",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933499290513891200",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933232533169009536",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-933121405340893056",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-932813898607680896",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-932765121026514816",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-932275246178792000",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-932162079986037248",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-932121997814453120",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-932002601414611392",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-931918850225090816",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-931676193086193536",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-931424213361177024",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-931229282444697344",
+      "reason": "duplicate"
+    },
+    {
+      "id": "yyb-931199214118268544",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930819305980744256",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930618236437217216",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930518380456652992",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930504821921341120",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930353075935174592",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930293135242722432",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930283827755499264",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-930138560379408640",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929992457618481344",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929990873585053632",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929967468990988224",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929958060777303808",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929944693928914752",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929944509722603904",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929610062729866496",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929505802134515648",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-929331269557579200",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-928230929461075520",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-927677019521580736",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-927468231984442944",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-927237653448125696",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-927036505821470656",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-926688570822808256",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-926536450988860224",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-926151926341726080",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925986999592497536",
+      "reason": "duplicate"
+    },
+    {
+      "id": "yyb-925969969561785088",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925901171240231424",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925847884831183488",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925824205950825344",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925761785961931136",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925723107817083456",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925675843267879872",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925583968538910464",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-925233077323485440",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-924981032990826880",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-924878380512345792",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-924749440632803776",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-924040754409430528",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-923515211498836480",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-922952010533647040",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-922603000997110592",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-921582714583282304",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-921178363293368256",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920917875727720320",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920852318107742912",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920840164990268096",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920670772310630272",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920571010851746176",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920558337377448704",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-920156440891522752",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-919216069118841536",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-918582371527638976",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-918535246857921344",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-918184040599941056",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-917294434358973312",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-916530978126852032",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-916525106460545792",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-915757180926877312",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-915703742385388992",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-915664621905850496",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-914691786203493184",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-914621308730376128",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-914372041692954368",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-914199103815315392",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-914038944605069248",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-913308093856535296",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-913212227204341312",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-913168104411381504",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-912911351374364480",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-912395737401160640",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-912148813594443648",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-911454945950617856",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-911339906605203264",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-910755764813378048",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-910541728554471872",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-910382654138908416",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-910218396481540672",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-909690740167725376",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-909385738756833088",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-909238814703120448",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-909160715903069504",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908511656649703360",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908441449591750464",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908254787485852224",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908174278901841792",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908136415087878080",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908051073638912448",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908023499814616960",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908007376355275392",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-908005034219328384",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-907469194445902272",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-907125177004089344",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-906748201936674496",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-906540739375673728",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-906167267474550912",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-905962787688689920",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-905901452519068288",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-905825724964331072",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-905335541532668160",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-905319534792990464",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903922976169422784",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903724178617192448",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903722317980840064",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903668216484623104",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903396024579997632",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903304121835639744",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903156241740018240",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903138962491862656",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903071674573274944",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-903052906769953472",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-902637829938954176",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-901931029854999232",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-901874203481898688",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-900784635055734144",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-900565154420703168",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-900454924258172288",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-900393943737332224",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-900083228921327552",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-900017701824970560",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-899872569357295488",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-899803074428088640",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-899850857646948288",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-899173339938873152",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-899015224913875520",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-898963777974120832",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-898096420459830912",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-897887568319271040",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-897875242927993280",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-897717296786063232",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-897743907421712192",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-897357882572984768",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-897186259227066240",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-896922777764180416",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-896470567294129088",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895904857014431424",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895863942451617216",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895494683039842240",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895423271440694976",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895429681671598336",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895166938393034624",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895140529621753472",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-895148946065642368",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-894630270623208192",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-894749490075455872",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-894583165092945600",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-894418270992498048",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-894393508005625792",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-893956449054962496",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-893386907925381056",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-893251993309835136",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-892883054942409024",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-892124597110496704",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-891754095490986176",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-891509351031299904",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-891183292616335232",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-891150804581932992",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-891103496342896256",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890816930444664768",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890800764018848512",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890777463382004352",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890753531582627520",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890701212361899968",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890665132418428928",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890659467877167296",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-890417572532376384",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890363289130291520",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890343087956589760",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-890186884502618048",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-890143703734186880",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-890105371228471168",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889974628366185344",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889842027433327936",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889683776445968512",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889602098464309056",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889428671090160384",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889256648128278912",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-889138754963952192",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-889093875712315520",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-889014601345061504",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-888955269800320640",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-888848589590131264",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-888765321275978368",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-888675502169579328",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-888610120977100992",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-888598513700491712",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-888325048692653632",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-888198018158744256",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-888108533175345088",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-887554434516139968",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-887500978086535104",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-887494315800883328",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-887380069698780800",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-887320094877515584",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-887141790740479808",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886993445269856192",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886971441036161664",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886816452018885056",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886791118057820928",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886783201075846976",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886779113977708352",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886690287284968896",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886454469527442240",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886447387851976960",
+      "reason": "empty_or_spam"
+    },
+    {
+      "id": "yyb-886437151391121344",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886426563816289088",
+      "reason": "outside_window"
+    },
+    {
+      "id": "yyb-886406702137138880",
+      "reason": "outside_window"
+    }
+  ],
+  "reference_at": "2026-09-27T13:15:49+00:00",
+  "requests": [
+    {
+      "page": 1,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_01.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:26+00:00",
+      "bytes": 30732,
+      "sha256": "23629232e6ffe7e8f98193d0ee99a43f2b0b8827000a7ac2a840e5143b3b4894",
+      "records": 50
+    },
+    {
+      "page": 2,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_02.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:28+00:00",
+      "bytes": 31287,
+      "sha256": "a05d750aef927259bbd7020863d654b707cfcfd03cb6491b4a7987a761ef42ff",
+      "records": 50
+    },
+    {
+      "page": 3,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_03.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:29+00:00",
+      "bytes": 29889,
+      "sha256": "0f6a057ad040eebd80dd3eedb36067a505ebbe6834df7e8ba2b61d7524ba9cdc",
+      "records": 50
+    },
+    {
+      "page": 4,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_04.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:31+00:00",
+      "bytes": 31473,
+      "sha256": "2894680d36f2a52f5989e44bc14e5e1c24813f4135ce46974136ebf0c5cb0595",
+      "records": 50
+    },
+    {
+      "page": 5,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_05.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:32+00:00",
+      "bytes": 32823,
+      "sha256": "8280972b4d3b39bc69ff3d101277f56e150476f501550626e3004b165030e693",
+      "records": 50
+    },
+    {
+      "page": 6,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_06.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:33+00:00",
+      "bytes": 35611,
+      "sha256": "22f568d6c8fe4fc87f48fdc08a7788a521f13a1b608c7d2e3aebd305e2350a0f",
+      "records": 50
+    },
+    {
+      "page": 7,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_07.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:35+00:00",
+      "bytes": 34418,
+      "sha256": "591404139968ac9ffd7f4a9b1aa2489eca1867138af735bac27fffd35df0a57b",
+      "records": 50
+    },
+    {
+      "page": 8,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_08.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:36+00:00",
+      "bytes": 32278,
+      "sha256": "82bfccc70069497f6a7b14ef97c271c835fcadcfb2c0f060c8b98bc319b642b5",
+      "records": 50
+    },
+    {
+      "page": 9,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_09.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:38+00:00",
+      "bytes": 33775,
+      "sha256": "13640ebee1f75b0f28c66be793b5865ce9e00d3669673f40bf2fc3bdc780e6dd",
+      "records": 50
+    },
+    {
+      "page": 10,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_10.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:40+00:00",
+      "bytes": 32405,
+      "sha256": "85f10d6ccd42f5018653cba7d4eea34659e5070a948251d6cfc8927477bce349",
+      "records": 50
+    },
+    {
+      "page": 11,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_11.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:41+00:00",
+      "bytes": 31556,
+      "sha256": "88ac2b7ec772ad960cc25133352b04ee7146ac0fe402a5575e55343de17bb773",
+      "records": 50
+    },
+    {
+      "page": 12,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_12.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:43+00:00",
+      "bytes": 31455,
+      "sha256": "c037a53367d2ce2969758678616227f958229d03213dc2c8374fc501a626d04c",
+      "records": 50
+    },
+    {
+      "page": 13,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_13.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:44+00:00",
+      "bytes": 32856,
+      "sha256": "6776d7fa4ecb519590132ca2508a0e932c6cb9d90041039b424dd0a01e1a4e1a",
+      "records": 50
+    },
+    {
+      "page": 14,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_14.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:46+00:00",
+      "bytes": 30972,
+      "sha256": "befe56dde6917f62700cd10a07aec467c23a2e175204aee32010dfc786dac45b",
+      "records": 50
+    },
+    {
+      "page": 15,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_15.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:48+00:00",
+      "bytes": 32573,
+      "sha256": "eef2f90cada0d04c55671f57662753476d6e1501a66f6ac8a9285c92fb708f37",
+      "records": 50
+    },
+    {
+      "page": 16,
+      "url": "https://yybadaccess.3g.qq.com/v2/dc_pcyyb_official",
+      "file": "data/raw/yyb_reviews_16.json",
+      "status": "cached",
+      "fetched_at": "2026-09-27T13:15:49+00:00",
+      "bytes": 31263,
+      "sha256": "7048a842c793a2b8db16e108875e847422e3566aee7a023bc2d2474f7a9b3563",
+      "records": 50
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "collected_at": "2026-09-27T12:14:23+00:00",
+  "topics": 3,
+  "raw_posts": 15,
+  "within_window": 5,
+  "excluded": {
+    "duplicate": 0,
+    "outside_window": 10,
+    "undated": 0,
+    "empty_or_spam": 0
+  },
+  "requests": [
+    {
+      "url": "https://html.duckduckgo.com/html/?q=%E8%B1%86%E5%8C%85%20AI%20%E5%8A%A9%E6%89%8B%20%E4%BD%93%E9%AA%8C%20site%3Av2ex.com/t/%20-%E8%BE%93%E5%85%A5%E6%B3%95%20-%E6%89%8B%E6%9C%BA",
+      "file": "data/raw/ddg_query_1.html",
+      "fetched_at": "2026-09-27T12:14:14+00:00",
+      "status": 202,
+      "bytes": 14328
+    },
+    {
+      "url": "https://html.duckduckgo.com/html/?q=%E8%B1%86%E5%8C%85%20%E5%AF%B9%E8%AF%9D%20%E4%BD%BF%E7%94%A8%20%E9%97%AE%E9%A2%98%20site%3Av2ex.com/t/%20-%E8%BE%93%E5%85%A5%E6%B3%95",
+      "file": "data/raw/ddg_query_2.html",
+      "fetched_at": "2026-09-27T12:14:15+00:00",
+      "status": 202,
+      "bytes": 14320
+    },
+    {
+      "url": "https://html.duckduckgo.com/html/?q=%E8%B1%86%E5%8C%85%20%E5%9B%9E%E7%AD%94%20%E4%BD%93%E9%AA%8C%20site%3Av2ex.com/t/%20-%E8%BE%93%E5%85%A5%E6%B3%95",
+      "file": "data/raw/ddg_query_3.html",
+      "fetched_at": "2026-09-27T12:14:16+00:00",
+      "status": 202,
+      "bytes": 14276
+    },
+    {
+      "url": "https://html.duckduckgo.com/html/?q=%E8%B1%86%E5%8C%85%20app%20%E4%BD%BF%E7%94%A8%20site%3Av2ex.com/t/%20-%E8%BE%93%E5%85%A5%E6%B3%95",
+      "file": "data/raw/ddg_query_4.html",
+      "fetched_at": "2026-09-27T12:14:17+00:00",
+      "status": 202,
+      "bytes": 14276
+    },
+    {
+      "url": "https://www.v2ex.com/api/topics/show.json?id=1240773",
+      "file": "data/raw/v2ex_topic_1240773.json",
+      "fetched_at": "2026-09-27T12:14:18+00:00",
+      "status": 200,
+      "bytes": 5855
+    },
+    {
+      "url": "https://www.v2ex.com/api/replies/show.json?topic_id=1240773",
+      "file": "data/raw/v2ex_replies_1240773.json",
+      "fetched_at": "2026-09-27T12:14:19+00:00",
+      "status": 200,
+      "bytes": 2
+    },
+    {
+      "url": "https://www.v2ex.com/api/topics/show.json?id=1222504",
+      "file": "data/raw/v2ex_topic_1222504.json",
+      "fetched_at": "2026-09-27T12:14:19+00:00",
+      "status": 200,
+      "bytes": 2441
+    },
+    {
+      "url": "https://www.v2ex.com/api/replies/show.json?topic_id=1222504",
+      "file": "data/raw/v2ex_replies_1222504.json",
+      "fetched_at": "2026-09-27T12:14:20+00:00",
+      "status": 200,
+      "bytes": 5250
+    },
+    {
+      "url": "https://www.v2ex.com/api/topics/show.json?id=1118065",
+      "file": "data/raw/v2ex_topic_1118065.json",
+      "fetched_at": "2026-09-27T12:14:21+00:00",
+      "status": 200,
+      "bytes": 3826
+    },
+    {
+      "url": "https://www.v2ex.com/api/replies/show.json?topic_id=1118065",
+      "file": "data/raw/v2ex_replies_1118065.json",
+      "fetched_at": "2026-09-27T12:14:22+00:00",
+      "status": 200,
+      "bytes": 10701
+    }
+  ]
+}
